@@ -114,7 +114,7 @@ const DestinationScreen = ({navigation}) => {
                     name:details.name
                 }})
 
-                navigation.goBack()
+                navigation.navigate("RequestScreen",{state:0})
                     
                }}
 

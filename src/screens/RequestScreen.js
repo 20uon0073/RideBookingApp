@@ -1,10 +1,12 @@
-import React,{useState,useContext,useEffect,useRef} from 'react'
+import React,{useState,useContext,useEffect,useRef,useMemo,useCallback} from 'react'
 import { StyleSheet,Image, Text, View,Dimensions ,TouchableOpacity,} from 'react-native'
 import BottomSheet, { BottomSheetFlatList,BottomSheetSectionList } from '@gorhom/bottom-sheet';
 import { Avatar,Icon} from 'react-native-elements';
 import { colors,parameters } from '../global/styles'
 import MapComponent from '../componets/MapComponent'
 import { OriginContext,DestinationContext } from '../contexts/contexts';
+import { rideData } from '../global/data';
+import { color } from 'react-native-elements/dist/helpers';
 
 
 
@@ -13,19 +15,47 @@ import { OriginContext,DestinationContext } from '../contexts/contexts';
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function RequestScreen({navigation}) {
+export default function RequestScreen({navigation,route}) {
   const {origin,dispatchOrigin} = useContext(OriginContext)
   const [userOrigin,setUserOrigin] = useState({latitude:origin.latitude,
                                                 longitude:origin.longitude})
   const {destination,dispatchDestination} = useContext(DestinationContext)
   const [userDestination,setUserDestination] = useState({latitude:destination.latitude,
                                               longitude:destination.longitude})                                            
-  useEffect(()=>{
+ 
+    const BottomSheet1=useRef(1) ;
+
+    const snapPoints1 =useMemo(()=>['70%'],[])
+    const handlesheetchange1 =useCallback((index)=>{},[])
+
+   useEffect(()=>{
     setUserOrigin({latitude:origin.latitude,
       longitude:origin.longitude })
   setUserDestination({latitude:destination.latitude,
         longitude:destination.longitude })  
-  },[origin,destination])                                            
+  },[origin,destination])  
+  
+  
+  const renderFlatListItems =useCallback(({item})=>(
+    <View>
+               <View style={styles.view10}>
+              <View style={styles.style.view11}>
+                  <Icon
+                       type ="material-community"
+                       name ="clock-time-four"
+                      color ={colors.white}
+                      size ={18} 
+                   />
+ 
+             </View>
+                <View>
+                   <Text style={{fontSize:15,color:colors.grey1}}> {item.street}</Text>
+                   <Text style={{color:colors.grey4}}> {item.area}</Text>
+                </View>
+ 
+           </View>
+    </View>
+ ),[])
 
   return (
     <View style ={styles.container}>
@@ -92,12 +122,72 @@ export default function RequestScreen({navigation}) {
 
       </View>
       <MapComponent userOrigin ={userOrigin} userDestination={userDestination}/>
-      <BottomSheet>
+      <BottomSheet
+         ref={BottomSheet1}
+         index={route.params.state}
+         snapPoints={snapPoints1}
+         onChange={handlesheetchange1}
+      >
+      <BottomSheetFlatList
+        keyboardShouldPersistTaps='always'
+        data={rideData}
+        keyExtractor={item=>item.id}
+        renderItem={renderFlatListItems}
+        contentContainerStyle={styles.contentContainer}
+        ListHeaderComponent={<View style={styles.view10}>
+               <View style={styles.view11}>
+                  <Icon
+                      type ="material-community"
+                      name ="star"
+                     color ={colors.white}
+                     size ={20} 
+                  />
+               </View>
+               <View>
+                  <Text style={styles.text9}> saved Places </Text>
+               </View>
+        </View>}
+        ListFooterComponent={
+          <View>
+          <View style={styles.view10}>
+             <View style={styles.style.view11}>
+                 <Icon
+                      type ="material-community"
+                      name ="map-marker"
+                     color ={colors.white}
+                     size ={20} 
+                  />
 
+            </View>
+               <View>
+                  <Text style={styles.text9}> set location on map </Text>
+               </View>
+
+          </View>
+                    <View style={styles.view10}>
+                    <View style={styles.style.view11}>
+                        <Icon
+                             type ="material-community"
+                             name ="skip-next"
+                            color ={colors.white}
+                            size ={20} 
+                         />
+       
+                   </View>
+                      <View>
+                         <Text style={styles.text9}> Enter Destination Later </Text>
+                      </View>
+                 </View>
+                 </View>
+        }
+      />
       </BottomSheet>
     </View>
   )
 }
+
+
+
 
 const styles = StyleSheet.create({
     container1:{
