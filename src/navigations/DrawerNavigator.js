@@ -13,7 +13,7 @@ export default function DrawerNavigator(){
                  name = "HomeStack"
                  component = {HomeStack}
                  options ={{
-                     title:"Home",
+                     title:"Client",
                      drawerIcon :({focussed,size})=><Icon type ="material-community" 
                                                           name = "home" 
                                                           color = {focussed?'#7cc':colors.grey2}

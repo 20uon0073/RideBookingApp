@@ -2,12 +2,16 @@ import { StatusBar } from 'expo-status-bar'
 import React,{useState,useRef,useEffect} from 'react'
 import { StyleSheet, Text, View, Dimensions ,ScrollView ,Image, FlatList, TextInput,TouchableOpacity} from 'react-native'
 import { Icon } from 'react-native-elements'
+import { useNavigation } from '@react-navigation/native';
 import MapView,{ PROVIDER_GOOGLE} from 'react-native-maps'
 const SCREEN_WIDTH = Dimensions.get('window').width
 import { colors , parameters } from '../global/styles'
+
 import { filterData,carsAround } from '../global/data'
 import { mapStyle } from '../global/mapStyle'
 import * as Location from 'expo-location';
+
+
 
 
 
@@ -22,6 +26,10 @@ const HomeScreen = ({navigation}) => {
           return permission
       }
       return true
+  };
+
+  const toggleDrawer = () => {
+    navigation.toggleDrawer();
   };
   
   
@@ -58,11 +66,12 @@ const HomeScreen = ({navigation}) => {
     <View style ={styles.container}>
       <View style ={styles.header}>
         <View style={styles.icon1}> 
+        <TouchableOpacity onPress={toggleDrawer} style={styles.icon1}> 
           <Icon type="material-community"
                 name="menu"
                 color={colors.white}
-                size={40}
-          />
+                size={40}/>
+          </TouchableOpacity>
 
         </View>
 
@@ -207,12 +216,12 @@ const styles = StyleSheet.create({
         paddingBottom:30,
         paddingTop:parameters.statusBarHeight
     },
-    header:{
-      backgroundColor:colors.blue,
-      height:parameters.headerHeight,
-      alignItems:"flex-start"
-     
+    header: {
+      backgroundColor: '#235536',
+      height: parameters.headerHeight,
+      alignItems: "flex-start",
     },
+    
     
     image1:{
      
@@ -225,11 +234,11 @@ const styles = StyleSheet.create({
             borderRadius:30,
           },
     
-    home:{
-     backgroundColor:colors.blue,
-     paddingLeft:20,
-     
-    },
+    home: {
+         backgroundColor: '#235536', 
+         paddingLeft: 20,
+          },
+          
     
     text1:{
      color:colors.white,
@@ -252,7 +261,7 @@ const styles = StyleSheet.create({
     button1:{
       height:40,
       width:150,
-      backgroundColor:colors.black,
+      backgroundColor:colors.white,
       borderRadius:20,
       alignItems:"center",
       justifyContent:"center",
@@ -260,8 +269,8 @@ const styles = StyleSheet.create({
     },
     
     button1Text:{
-     color:colors.white,
-     fontSize:17,
+     color:colors.green,
+     fontSize:19,
      marginTop:-2
     
     },

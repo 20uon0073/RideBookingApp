@@ -7,11 +7,11 @@ export const filterData = [ {name:"Ride",image: require('../../assets/ride.png')
 
 
 export const rideData =[
-    {street:"32 Olivia Rd",area:"Klipfontein 83-Ir,Boksburg",id:"0"},
-    {street:"Hughes Industrial Park",area:"Hughes,Boksburg",id:"1"},
-    {street:"32 Olivia Road",area:" East Rand,Ekurhuleni,Gauteng,1459",id:"2"},
-    {street:"Total Boksburg",area:"35 Atlas Rd,Anderbolt,Boksburg",id:"3"},
-    {street:"179 8th Ave",area:"Bezuidenhout Valley,Johannesburg",id:"4"},
+    {street:"University of Narowal    ",area:"Behbalwale shakargarh road, Narowal, Punjab, Pakistan",id:"0"},
+    {street:"Regional Passport Office Narowal    ",area:"Kachehri Road, Narowal, Punjab, Pakistan",id:"1"},
+    {street:"Z F C(Zafarwal Fried Chicken)    ",area:" Circular Rd, Narowal, Punjab 54000, Pakistan",id:"2"},
+    {street:"Narowal railway station    ",area:" Mohalla Ganj Hassanabad, Narowal, Punjab, Pakistan",id:"3"},
+    {street:"Narowal Bus Stand    ",area:"Circular Rd, Mohalla Chiraghpura, Narowal, Punjab, Pakistan",id:"4"},
 ];
 
 export const carTypeData =[
@@ -57,9 +57,9 @@ export const paymentOptions = [{image:require('../../assets/visaIcon.png'),text:
 
 export const availableServices = ["Uber Go","UberX","Uber connect","Uber Black","Uber Van","Uber Assist"]
 
-export const carsAround = [{latitude:32.101406 ,longitude:74.879951},
-    {latitude:32.101328 ,longitude:74.892632},
-    {latitude:32.103364 ,longitude:74.879242},
-    {latitude:32.101328 ,longitude:74.887825},
-    {latitude:32.094638 ,longitude:74.880272},
+export const carsAround = [{latitude:32.10197000,longitude:74.87303000},
+    {latitude:32.10197000,longitude:74.87303000},
+    {latitude:-26.202424,longitude:28.236612},
+    {latitude:-26.208565,longitude:28.237191},
+    {latitude:-26.203598,longitude:28.239509},
 ]
