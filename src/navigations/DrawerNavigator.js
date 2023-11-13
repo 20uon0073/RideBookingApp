@@ -20,7 +20,7 @@ export default function DrawerNavigator(){
                                                           size ={size}
                                                           />,
 
-                 headerShown : false                                      
+                 headerShown : false                                     
                  }}
 
                 
