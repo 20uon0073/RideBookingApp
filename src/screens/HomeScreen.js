@@ -147,15 +147,21 @@ const HomeScreen = ({navigation}) => {
                                 />
                             </View>
                             <View>
+                                <TouchableOpacity onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}>
                                 <Text style ={{fontSize:18,color:colors.black}}>University of Narowal New Campus </Text>
+                                
                                 <Text style ={{color:colors.grey3}}>Behbalwale shakargarh road, Narowal, </Text>
+                                </TouchableOpacity>
+                                
                             </View>
+                            
                         </View>
                         <View>
                             <Icon type = "material-community"
                                         name ="chevron-right"
                                         color = {colors.grey}
                                         size = {26}
+                                        onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}
                                     />
                             </View>
                     </View>
@@ -167,11 +173,16 @@ const HomeScreen = ({navigation}) => {
                                     name ="map-marker"
                                     color = {colors.black}
                                     size = {22}
+
                                 />
                             </View>
                             <View>
+                            <TouchableOpacity onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}>
+
+                            
                                 <Text style ={{fontSize:18,color:colors.black}}>Nadra office</Text>
                                 <Text style ={{color:colors.grey3}}>College Rd, Narowal, </Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
                         <View>
@@ -179,6 +190,7 @@ const HomeScreen = ({navigation}) => {
                                         name ="chevron-right"
                                         color = {colors.grey}
                                         size = {26}
+                                        onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}
                             />
                 </View>
 

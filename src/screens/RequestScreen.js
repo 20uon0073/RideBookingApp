@@ -200,8 +200,8 @@ const styles = StyleSheet.create({
 
       view1:{
         position:"absolute",
-        top:25,
-        left:12,
+        top:45,
+        left:15,
         backgroundColor:colors.white,
         height:40,
         width:40,
