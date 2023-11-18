@@ -5,7 +5,7 @@ import DrawerNavigator from './DrawerNavigator';
 export default function RoootNavigator(){
     return(
         <NavigationContainer>
-            <DrawerNavigator />
+        <DrawerNavigator />
         </NavigationContainer>
     )
 }

@@ -1,6 +1,7 @@
 import React,{useRef,useContext,useState} from 'react'
 import { StyleSheet, Text, View,Dimensions,TouchableOpacity,} from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
 import { Avatar,Icon} from 'react-native-elements';
 import { colors,parameters } from '../global/styles'
 import {GOOGLE_MAPS_APIKEY} from "@env";
@@ -18,6 +19,7 @@ const DestinationScreen = ({navigation}) => {
     const textInput2 = useRef(5);
 
     const[destination,setDestination] = useState(false)
+
 
     return (
         <>

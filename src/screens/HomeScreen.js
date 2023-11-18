@@ -126,12 +126,16 @@ const HomeScreen = ({navigation}) => {
                       name="clock-time-four"
                       color={colors.grey1}
                        size={26}
+                       
              />
                 <Text style={{marginLeft:5}}> Now </Text>
+                
                 <Icon type="material-community"
                          name="chevron-down"
                          color={colors.grey1}
                           size={26}
+                          onPress ={()=>{navigation.navigate("RequestScreen",{state:0})}}
+                          
               />
 
                </View>
@@ -214,7 +218,7 @@ const HomeScreen = ({navigation}) => {
                     </View>
       </ScrollView>
 
-      <StatusBar style="light" backgroundColor='#2058c0' translucent={true}/>
+      <StatusBar style="light" backgroundColor='#235536' translucent={true}/>
     </View>
   )
 }
@@ -298,7 +302,7 @@ const styles = StyleSheet.create({
         },
     
         title:{
-          color:colors.black,
+          color:colors.green,
           fontSize:16
         },
     view3:{flexDirection:"row",
